@@ -82,3 +82,29 @@ body.dark .orbital{background:linear-gradient(145deg,#303a2d,#253124)}
 @media(max-width:800px){.brand-mark{width:28px;height:28px}.brand-wordmark{font-size:22px}.brand{gap:7px}.brand-api{font-size:8px;padding:2px 4px}}
 @media(max-width:560px){.brand-mark{width:25px;height:25px}.brand-wordmark{font-size:19px;letter-spacing:-.7px}.brand{gap:6px}.brand-api{font-size:7px;margin-left:0;padding:2px 3px}}
 @media(max-width:360px){.brand-mark{width:23px;height:23px}.brand-wordmark{font-size:18px}.brand-api{display:none}}
+/* Consistent type, spacing, and a clear app showcase. */
+:root{--muted:#646b62}body.dark{--muted:#a7b3a3}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+.button{min-height:40px;border-radius:7px;font-size:12px;line-height:1.3}
+.header nav a{font-size:13px}.search-trigger{min-height:37px}.sidebar>a{min-height:39px}
+.hero h1{font-weight:500}.section-top h2{line-height:1.3}.feature{border-radius:10px}
+.guide-list a{min-height:64px}.guide-list a:hover{color:var(--accent)}
+.aniway-promo{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:38px;margin-top:48px;overflow:hidden;position:relative}
+.aniway-promo-copy{min-width:0}.aniway-promo .eyebrow{font-size:9px;letter-spacing:1.3px}
+.aniway-lockup{display:inline-flex;gap:7px;align-items:center;font:650 24px 'Space Grotesk',sans-serif;letter-spacing:-1.1px;margin:22px 0 13px}.aniway-lockup img{width:30px;height:30px;border-radius:8px}.aniway-period{color:#de7c65}
+.aniway-promo h2{font:500 clamp(30px,3vw,42px)/1.08 'Space Grotesk',sans-serif;letter-spacing:-1.8px;margin:0 0 16px}
+.aniway-promo-copy>p{font-size:13px;line-height:1.85;color:var(--muted);max-width:340px;margin:0 0 24px}
+.promo-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.promo-actions .text-link{font-size:11px}
+.aniway-preview{border:1px solid var(--line);border-radius:10px;background:var(--bg);overflow:hidden;min-width:0;box-shadow:0 12px 40px #17211508;transform:rotate(-1deg)}
+.preview-top{padding:13px 15px;display:flex;align-items:center;gap:7px;font:8px monospace;letter-spacing:.8px;color:var(--muted)}.preview-dot{width:5px;height:5px;background:#de7c65;border-radius:50%}.preview-label{margin-left:auto;font-size:6px;letter-spacing:.3px}
+.preview-banner{margin:0 12px;position:relative;height:125px;border-radius:6px;overflow:hidden;background:#35463b}.preview-banner:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#13281bd9,#13281b10)}.preview-banner img{height:100%;width:100%;object-fit:cover}.preview-banner>div{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:20px;color:#fff}.preview-banner span{font-size:7px;letter-spacing:1px;margin-bottom:8px}.preview-banner strong{font:500 22px/1.2 'Space Grotesk',sans-serif;letter-spacing:-.6px;max-width:200px}
+.preview-days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;padding:13px 14px 8px}.preview-days>span{height:32px;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--soft);font-size:8px;color:var(--muted);gap:3px}.preview-days .selected{background:var(--ink);color:var(--bg)}.preview-days i{width:2px;height:2px;border-radius:50%;background:currentColor;opacity:.4}
+.preview-feature{display:flex;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}.preview-feature-icon{font-size:18px;color:#de7c65}.preview-feature>div{min-width:0;flex:1}.preview-feature strong{display:block;font-size:10px;font-weight:550}.preview-feature small{display:block;font-size:8px;color:var(--muted);margin-top:3px;line-height:1.5}.preview-feature>span:last-child{color:var(--muted);font-size:11px}
+.preview-bottom{display:flex;justify-content:space-between;font-size:9px;padding:13px 16px;color:var(--muted)}.preview-bottom:hover{color:var(--accent)}
+.aniway-doc-note{display:flex;gap:12px;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:16px;margin-top:34px}.aniway-doc-note img{flex-shrink:0}.aniway-doc-note strong{font-size:11px;font-weight:600}.aniway-doc-note p{font-size:11px;line-height:1.6;margin:3px 0 0}.aniway-doc-note>a{font-size:10px;white-space:nowrap;color:var(--accent);margin-left:auto;align-self:center}.footer-links{display:flex;gap:20px;align-items:center}
+button:disabled{cursor:wait;opacity:.65}.get{font-size:9px}.version{font-size:10px}
+@media(max-width:1100px){.aniway-promo{gap:28px;padding:28px}.aniway-promo h2{font-size:34px}.promo-actions{gap:14px}.preview-top{font-size:7px}.preview-label{font-size:5px}}
+@media(max-width:800px){.aniway-promo{gap:24px;padding:26px}.header nav a{font-size:11px}.aniway-doc-note{flex-wrap:wrap}.aniway-doc-note>a{margin-left:36px}.preview-top{letter-spacing:.3px}.preview-label{display:none}}
+@media(max-width:560px){.aniway-promo{grid-template-columns:minmax(0,1fr);padding:24px;gap:28px;margin-top:32px}.aniway-promo h2{font-size:36px}.aniway-promo-copy>p{font-size:12px}.aniway-preview{transform:none}.preview-label{display:block;font-size:5px}.footer-links{gap:12px}.header nav a{font-size:10px}.aniway-doc-note>div{flex:1;min-width:140px}}
+@media(max-width:360px){.header nav a{font-size:9px}.aniway-promo{padding:19px}.preview-banner strong{font-size:20px}.preview-feature{padding:11px}.preview-feature strong{font-size:9px}.preview-feature small{font-size:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.aniway-preview{transform:none}}

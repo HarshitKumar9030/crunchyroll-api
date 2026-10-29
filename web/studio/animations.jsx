@@ -90,15 +90,15 @@ export function mountEnhancements() {
       gsap.from(orbital,{scale:.96,opacity:0,duration:1.05,ease:'power3.out',clearProps:'transform,opacity'});
       gsap.from(orbital.querySelectorAll('.floating'),{y:12,opacity:0,duration:.9,stagger:.15,delay:.45,ease:'power3.out',clearProps:'transform,opacity'});
     }
-    main.querySelectorAll('.feature-grid, .two-col, .article>section, .playground, .settings-grid, .anime-list').forEach(section=>{
-      gsap.from(section,{y:16,opacity:0,duration:.65,ease:'power2.out',scrollTrigger:{trigger:section,start:'top 94%',once:true},clearProps:'transform,opacity'});
+    main.querySelectorAll('.feature-grid, .two-col, .article>section, .playground, .settings-grid, .anime-list, .aniway-promo').forEach(section=>{
+      gsap.from(section,{y:16,opacity:0,duration:.65,ease:'power2.out',scrollTrigger:{trigger:section,start:'top 96%',once:true},clearProps:'transform,opacity'});
     });
     return ()=>{};
   });
   const hoverTweens=new Set();
   function hover(event){
     if(matchMedia('(prefers-reduced-motion: reduce)').matches||!matchMedia('(hover: hover)').matches)return;
-    const card=event.target.closest('.feature, .button, .brand-mark');
+    const card=event.target.closest('.feature, .button, .brand-mark, .preview-feature');
     if(!card||card.contains(event.relatedTarget))return;
     const entering=event.type==='pointerover';
     const tween=gsap.to(card,{y:entering?-2:0,duration:.3,ease:'power2.out',overwrite:true,onComplete:()=>hoverTweens.delete(tween)});

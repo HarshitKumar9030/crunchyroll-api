@@ -162,6 +162,12 @@ The hosted static version offers documentation and explicitly labeled sample dat
 
 Run `npm run web:build` to bundle the static app into `web/studio/dist`.
 
+## Built with crunchy-api
+
+[**Aniway — your anime, on your time.**](https://aniway.harshit.page) uses this package for optional Crunchyroll sync. Discover seasonal anime, view Japanese broadcast schedules in your timezone, and keep a personal watchlist with episode progress.
+
+[Explore Aniway](https://aniway.harshit.page) · [View its source](https://github.com/HarshitKumar9030/aniway)
+
 ## Development and verification
 
 ```bash
