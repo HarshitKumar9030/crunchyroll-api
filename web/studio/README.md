@@ -14,9 +14,11 @@ npm run web
 
 Open http://127.0.0.1:4173. The local server bundles the app on startup. After source changes run `npm run web:build` and reload the browser. Changes to the server itself require a restart.
 
-To enable live read-only account requests, supply `CRUNCHYROLL_COOKIE` to the server environment. No cookie-entry UI exists: credentials are exchanged and retained on the server. The proxy uses the local package build, binds to loopback, validates Host/Origin headers, and allows only predefined read methods. The status endpoint reports whether a cookie is configured; it does not validate that cookie.
+Open **Studio → Connection** to enter your own Crunchyroll `etp_rt` cookie value or cookie header. Only the `etp_rt` value is retained. It is exchanged server-side and encrypted with AES-256-GCM in an HttpOnly, SameSite=Strict cookie, capped at 30 minutes. HTTPS deployments use a Secure `__Host-` cookie. No credentials are returned to JavaScript or saved in localStorage. Each browser has its own session; clients are not shared between users.
 
-The static hosted app always offers a clearly labeled sample-data mode. It cannot connect to a visitor's localhost server. Favorites are browser-local; they never mutate an upstream account.
+The `/api/studio` endpoint accepts GET for connection status and same-origin JSON POST for connect, disconnect, or an allowlisted content request. It enforces an 8 KB request limit and masks upstream error details. The local proxy binds to loopback and validates Host/Origin headers. A local server automatically creates an ephemeral encryption key unless `STUDIO_SESSION_SECRET` is supplied; restarting it invalidates connections created with that ephemeral key.
+
+The hosted static private Site links to the Vercel web app for live connections. It offers sample data without a backend. Favorites are browser-local and never modify the upstream account.
 
 ## Build
 
@@ -46,4 +48,6 @@ Import the repository with its root directory set to `.`. The root `vercel.json`
 
 If you deliberately select `web/studio` as the Vercel project root, its own `vercel.json` runs the equivalent local commands and serves `dist`.
 
-Do not deploy the package's `dist/index.js` as a server function: it is the SDK entrypoint, not an HTTP request handler. The local `server.mjs` account proxy is not part of the static deployment. Hosted deployments offer docs and sample data; use the local server for your Crunchyroll account.
+The legitimate `api/studio.js` serverless function handles the account connection; `STUDIO_SESSION_SECRET` must contain a random 32-byte key encoded as 64 hexadecimal characters, stored as a Vercel production secret. Never put this key in source control.
+
+Do not deploy the package's `dist/index.js` as a server function: it is the SDK entrypoint, not an HTTP request handler. The standalone `server.mjs` development listener is not deployed. Vercel serves static assets plus the dedicated account API. The private static Site offers sample data and links to Vercel for account connections.

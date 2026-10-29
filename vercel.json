@@ -3,5 +3,10 @@
   "framework": null,
   "installCommand": "npm --prefix web/studio ci",
   "buildCommand": "npm run web:build",
-  "outputDirectory": "web/studio/dist"
+  "outputDirectory": "web/studio/dist",
+  "functions": {
+    "api/studio.js": {
+      "maxDuration": 60
+    }
+  }
 }

@@ -156,9 +156,11 @@ npm --prefix web/studio ci
 npm run web
 ```
 
-Open `http://127.0.0.1:4173`. To make live read-only requests through the package, set `CRUNCHYROLL_COOKIE` in the server environment before launching. The browser does not receive the cookie or bearer token. The server binds only to `127.0.0.1`, validates Host/Origin headers, and exposes an allowlist of read methods. `CRUNCHY_STUDIO_PORT` overrides the port.
+Open `http://127.0.0.1:4173`, go to **Studio → Connection**, and paste your `etp_rt` value or cookie header. The form clears after submission. Each browser receives an encrypted, HttpOnly, SameSite=Strict session cookie with a maximum lifetime of 30 minutes. No session credentials are returned in JSON responses or stored in localStorage. Disconnect clears the browser session; it does not revoke the Crunchyroll session upstream.
 
-The hosted static version offers documentation and explicitly labeled sample data. Live account access requires the local Node.js server. Stars are browser-local and never update your Crunchyroll watchlist.
+The [Vercel web app](https://crunchyroll-api.vercel.app/#studio?tab=connect) supports the same flow through `/api/studio`. Configure a 64-character hexadecimal `STUDIO_SESSION_SECRET` as a Vercel production secret. The local Node server generates an in-memory key when the variable is absent; restarting it invalidates local connections. `CRUNCHY_STUDIO_PORT` overrides the loopback port.
+
+The private static Site supports documentation and sample data and links to the Vercel app for account connections. Stars remain browser-local and never modify your Crunchyroll watchlist.
 
 Run `npm run web:build` to bundle the static app into `web/studio/dist`.
 
