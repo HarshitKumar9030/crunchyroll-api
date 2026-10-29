@@ -15,7 +15,7 @@ async function authenticate() {
   authentication ??= client.authenticateWithRtCookie({ cookie: process.env.CRUNCHYROLL_COOKIE }).finally(() => { authentication = undefined; });
   await authentication;
 }
-const assets = { '/': ['index.html', 'text/html; charset=utf-8'], '/index.html': ['index.html', 'text/html; charset=utf-8'], '/styles.css': ['styles.css', 'text/css; charset=utf-8'], '/app.js': ['app.js', 'text/javascript; charset=utf-8'], '/app.js.LEGAL.txt': ['app.js.LEGAL.txt', 'text/plain; charset=utf-8'] };
+const assets = { '/logo.svg': ['logo.svg', 'image/svg+xml'], '/': ['index.html', 'text/html; charset=utf-8'], '/index.html': ['index.html', 'text/html; charset=utf-8'], '/styles.css': ['styles.css', 'text/css; charset=utf-8'], '/app.js': ['app.js', 'text/javascript; charset=utf-8'], '/app.js.LEGAL.txt': ['app.js.LEGAL.txt', 'text/plain; charset=utf-8'] };
 function json(response, status, data) {
   response.writeHead(status, { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-content-type-options': 'nosniff' });
   response.end(JSON.stringify(data));
