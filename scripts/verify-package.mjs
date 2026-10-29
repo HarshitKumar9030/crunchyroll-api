@@ -8,15 +8,17 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const temporary = mkdtempSync(join(tmpdir(), 'crunchy-api-package-'));
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+// A publish dry run must still build and install the temporary consumer fixture.
+const verificationEnv = { ...process.env, npm_config_dry_run: 'false' };
 try {
-  const packed = JSON.parse(execFileSync(npm, ['pack', '--silent', '--json', '--pack-destination', temporary], { cwd: root, encoding: 'utf8' }))[0];
+  const packed = JSON.parse(execFileSync(npm, ['pack', '--silent', '--json', '--pack-destination', temporary], { cwd: root, encoding: 'utf8', env: verificationEnv }))[0];
   const files = new Set(packed.files.map(file => file.path));
   for (const path of ['dist/index.js', 'dist/index.d.ts', 'src/index.ts', 'LICENSE', 'README.md']) {
     assert.ok(files.has(path), `Missing packaged file: ${path}`);
   }
   assert.ok(![...files].some(path => path.startsWith('test/') || path.startsWith('node_modules/')));
   writeFileSync(join(temporary, 'package.json'), JSON.stringify({ private: true, type: 'module' }));
-  execFileSync(npm, ['install', '--ignore-scripts', '--no-audit', '--no-fund', join(temporary, packed.filename)], { cwd: temporary, stdio: 'pipe' });
+  execFileSync(npm, ['install', '--ignore-scripts', '--no-audit', '--no-fund', join(temporary, packed.filename)], { cwd: temporary, stdio: 'pipe', env: verificationEnv });
   writeFileSync(join(temporary, 'consumer.mjs'), `
     import assert from 'node:assert/strict';
     import { CrunchyrollClient, CrunchyrollApiError, CrunchyrollAuthError, CrunchyrollValidationError } from 'crunchy-api';
