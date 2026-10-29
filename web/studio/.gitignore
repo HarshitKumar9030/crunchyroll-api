@@ -3,3 +3,4 @@ node_modules/
 *.log
 dist/
 .openai/*.tar.gz
+.vercel/

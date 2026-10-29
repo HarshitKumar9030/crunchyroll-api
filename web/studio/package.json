@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "dev": "node server.mjs"
+    "dev": "node server.mjs",
+    "artwork:refresh": "node update-artwork.mjs"
   },
   "dependencies": {
     "framer-motion": "^14.7.1",

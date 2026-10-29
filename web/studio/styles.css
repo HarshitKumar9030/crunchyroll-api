@@ -44,3 +44,29 @@ body.dark .orbital{background:linear-gradient(145deg,#303a2d,#253124)}
 .two-col>* , .playground>* , .settings-grid>*{min-width:0}
 .code-panel{max-width:100%}
 @media(max-width:360px){.header{padding:0 10px;gap:6px}.header nav{gap:8px}.header nav .tiny-arrow{display:none}.header-actions{gap:0}.header-actions .icon-button{padding:2px;font-size:18px}}
+/* Real AniList artwork; retain a readable fallback if the image CDN is unavailable. */
+.cover{width:64px;height:90px;border-radius:6px;border:1px solid #0000000a;box-shadow:0 3px 9px #2027240c;display:block;padding:6px}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1}
+.cover img[hidden]{display:none}
+.cover.has-art:before{display:none}
+.cover-fallback{position:absolute;bottom:6px;left:6px;right:6px;font:600 9px 'Space Grotesk',sans-serif;line-height:1.3}
+.cover:focus-visible{outline-offset:4px}
+.anime-row{padding-top:18px;padding-bottom:18px;gap:20px}
+.anime-text h3{font-size:14px}.anime-text p{font-size:11px}.anime-meta{font-size:11px}
+.studio-foot a{color:var(--ink);text-underline-offset:3px}.studio-foot a:hover{text-decoration:underline}
+.hero-artwork{position:relative;width:100%;height:100%;display:grid;place-items:center}
+.hero-artwork .orbit-svg{position:absolute;inset:0;opacity:.45}
+.poster-stack{position:relative;width:300px;height:220px;pointer-events:auto;isolation:isolate}
+.hero-poster{position:absolute;width:118px;height:168px;top:28px;border-radius:8px;overflow:hidden;background:var(--soft);box-shadow:0 12px 30px #18221635;border:3px solid var(--panel);display:block;transform-origin:center bottom}
+.hero-poster img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-poster img[hidden]{display:none}
+.hero-poster:after{content:'';position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#111c)}
+.hero-poster-title{position:absolute;left:8px;right:8px;bottom:8px;z-index:1;color:#fff;font:600 10px/1.3 'DM Sans',sans-serif;text-shadow:0 1px 4px #0008}
+.poster-0{left:15px;z-index:1}.poster-1{left:91px;z-index:3;top:16px}.poster-2{right:8px;z-index:2}
+.orbital .floating.a{top:18px;left:18px;font:8px monospace;letter-spacing:1px}
+.orbit-tag a{pointer-events:auto}.orbit-tag a:hover{text-decoration:underline}
+#orbit-canvas{pointer-events:auto}
+@media(min-width:1500px){.poster-stack{transform:scale(1.1)}}
+@media(max-width:1100px) and (min-width:561px){.poster-stack{transform:scale(.85)}}
+@media(max-width:560px){.poster-stack{transform:scale(.9)}.cover{width:51px;height:73px}.anime-row{gap:13px}.anime-text h3{font-size:12px}.anime-meta{font-size:9px}.studio-foot{flex-wrap:wrap;gap:8px}}
+@media(max-width:360px){.poster-stack{transform:scale(.77)}}

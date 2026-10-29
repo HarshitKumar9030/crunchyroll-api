@@ -1,0 +1,52 @@
+{
+  "demo-frieren": {
+    "anilistId": 154587,
+    "title": "Frieren: Beyond Journey’s End",
+    "sourceUrl": "https://anilist.co/anime/154587",
+    "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx154587-qQTzQnEJJ3oB.jpg",
+    "coverLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx154587-qQTzQnEJJ3oB.jpg",
+    "coverSmall": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx154587-qQTzQnEJJ3oB.jpg",
+    "color": "#bbf1a1",
+    "banner": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/154587-ivXNJ23SM1xB.jpg"
+  },
+  "demo-apothecary": {
+    "anilistId": 161645,
+    "title": "The Apothecary Diaries",
+    "sourceUrl": "https://anilist.co/anime/161645",
+    "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx161645-QLbzHXiYRgV2.jpg",
+    "coverLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx161645-QLbzHXiYRgV2.jpg",
+    "coverSmall": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx161645-QLbzHXiYRgV2.jpg",
+    "color": "#f1865d",
+    "banner": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/161645-oqzTZYIvviWI.jpg"
+  },
+  "demo-dandadan": {
+    "anilistId": 171018,
+    "title": "DAN DA DAN",
+    "sourceUrl": "https://anilist.co/anime/171018",
+    "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx171018-60q1B6GK2Ghb.jpg",
+    "coverLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx171018-60q1B6GK2Ghb.jpg",
+    "coverSmall": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx171018-60q1B6GK2Ghb.jpg",
+    "color": "#e47850",
+    "banner": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/171018-SpwPNAduszXl.jpg"
+  },
+  "demo-dungeon": {
+    "anilistId": 153518,
+    "title": "Delicious in Dungeon",
+    "sourceUrl": "https://anilist.co/anime/153518",
+    "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx153518-IVXPDY5ph3kO.jpg",
+    "coverLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx153518-IVXPDY5ph3kO.jpg",
+    "coverSmall": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx153518-IVXPDY5ph3kO.jpg",
+    "color": "#e48650",
+    "banner": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/153518-7uRvV7SLqmHV.jpg"
+  },
+  "demo-onepiece": {
+    "anilistId": 21,
+    "title": "ONE PIECE",
+    "sourceUrl": "https://anilist.co/anime/21",
+    "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21-ELSYx3yMPcKM.jpg",
+    "coverLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21-ELSYx3yMPcKM.jpg",
+    "coverSmall": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx21-ELSYx3yMPcKM.jpg",
+    "color": "#e49335",
+    "banner": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21-wf37VakJmZqs.jpg"
+  }
+}

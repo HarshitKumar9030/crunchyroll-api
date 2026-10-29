@@ -3,3 +3,6 @@ dist
 *.log
 out.json
 *.tgz
+.vercel/
+.vercel
+.env*

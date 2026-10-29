@@ -57,7 +57,7 @@ const server = createServer(async (request, response) => {
   const asset = assets[url.pathname];
   if (!asset) return json(response, 404, { error: 'Not found.' });
   try {
-    response.writeHead(200, { 'content-type': asset[1], 'cache-control': 'no-cache', 'x-content-type-options': 'nosniff', 'referrer-policy': 'same-origin', 'content-security-policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'" });
+    response.writeHead(200, { 'content-type': asset[1], 'cache-control': 'no-cache', 'x-content-type-options': 'nosniff', 'referrer-policy': 'same-origin', 'content-security-policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; img-src 'self' https://s4.anilist.co; base-uri 'none'; frame-ancestors 'none'" });
     response.end(await readFile(new URL(`dist/${asset[0]}`, import.meta.url)));
   } catch { response.end('Unable to load asset. Run npm run web:build.'); }
 });

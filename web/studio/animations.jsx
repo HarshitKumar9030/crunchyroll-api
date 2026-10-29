@@ -1,3 +1,4 @@
+import artwork from './data/anilist-artwork.json';
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion';
@@ -29,7 +30,7 @@ function OrbitIllustration() {
     animate: { rotate: moving ? (reverse ? -360 : 360) : 0 },
     transition: moving ? { duration: seconds, repeat: Infinity, ease: 'linear' } : { duration: 0 },
   });
-  return <motion.svg viewBox="0 0 440 310" className="orbit-svg" aria-hidden="true" initial={false}>
+  return <div className="hero-artwork"><motion.svg viewBox="0 0 440 310" className="orbit-svg" aria-hidden="true" initial={false}>
     <defs>
       <radialGradient id="orbit-glow"><stop stopColor="#f46735" stopOpacity=".12"/><stop offset="1" stopColor="#f46735" stopOpacity="0"/></radialGradient>
     </defs>
@@ -45,7 +46,20 @@ function OrbitIllustration() {
     <circle cx="220" cy="155" r="9" fill="#f46735"/>
     <circle cx="217" cy="152" r="2" fill="#ffc5a6"/>
     {[[85,74],[350,224],[330,62],[117,241]].map(([x,y],i)=><motion.g key={x} animate={moving?{opacity:[.25,.8,.25],scale:[.8,1,.8]}:{opacity:.6}} transition={{duration:moving?3+i:0,repeat:moving?Infinity:0,delay:moving?i*.6:0}} style={{transformOrigin:`${x}px ${y}px`}}><path d={`M${x-4} ${y}h8m-4-4v8`} stroke="#8c9c7d" strokeWidth="1"/></motion.g>)}
-  </motion.svg>;
+  </motion.svg><div className="poster-stack">
+    {['demo-apothecary','demo-frieren','demo-dandadan'].map((id,index) => {
+      const media = artwork[id];
+      const rotation = [-12, -2, 12][index];
+      return <motion.a key={id} className={`hero-poster poster-${index}`} href={media.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`View ${media.title} on AniList`}
+        initial={{opacity:moving?0:1,y:moving?18:0,rotate:rotation}}
+        animate={{opacity:1,y:moving?[0,-5,0]:0,rotate:rotation}}
+        transition={{opacity:{duration:.6,delay:index*.1},y:{duration:moving?5+index:0,repeat:moving?Infinity:0,ease:'easeInOut'},rotate:{duration:.6}}}
+        whileHover={moving?{y:-10,rotate:0,scale:1.04}:undefined}>
+        <img src={media.coverLarge} alt="" width="460" height="650" decoding="async" onError={event=>{event.currentTarget.hidden=true;}}/>
+        <span className="hero-poster-title">{media.title}</span>
+      </motion.a>;
+    })}
+  </div></div>;
 }
 
 function DataFlow() {

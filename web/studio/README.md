@@ -33,3 +33,17 @@ Code is highlighted locally for TypeScript, JavaScript, JSON, and Bash. Google F
 ## Publication
 
 `.openai/hosting.json` identifies the private Site and static directory. Publish the built `dist/` with the Sites source workflow. The local account proxy is not deployed with the static site.
+
+## AniList artwork
+
+The studio uses public cover metadata fetched from AniList's GraphQL API. `data/anilist-artwork.json` stores the matched media IDs, image URLs, titles, and source links for the sample collection. Posters link back to their AniList entries. No authentication or account data is used.
+
+Refresh the five selected titles explicitly with `npm --prefix web/studio run artwork:refresh`. Normal builds use the snapshot, so an AniList API outage does not block deployment. Image failures retain a readable fallback. The hosted/local app permits AniList's image CDN in its image policy.
+
+## Vercel
+
+Import the repository with its root directory set to `.`. The root `vercel.json` explicitly selects the static build, installs the studio's dependencies, runs `npm run web:build`, and serves only `web/studio/dist`.
+
+If you deliberately select `web/studio` as the Vercel project root, its own `vercel.json` runs the equivalent local commands and serves `dist`.
+
+Do not deploy the package's `dist/index.js` as a server function: it is the SDK entrypoint, not an HTTP request handler. The local `server.mjs` account proxy is not part of the static deployment. Hosted deployments offer docs and sample data; use the local server for your Crunchyroll account.
