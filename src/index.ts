@@ -1,6 +1,12 @@
 export { CrunchyrollClient } from "./client.js";
-export { CrunchyrollApiError, CrunchyrollAuthError, CrunchyrollValidationError } from "./errors.js";
+export { CrunchyrollAbortError, CrunchyrollApiError, CrunchyrollAuthError, CrunchyrollValidationError } from "./errors.js";
 export type {
+  CrunchyrollRequestOptions,
+  PaginationOptions,
+  SeriesInfo,
+  SeasonInfo,
+  SeriesSeasonsQuery,
+  SeriesSeasonsResponse,
   AnonymousTokenResponse,
   ApiListResponse,
   ApiObjectResponse,

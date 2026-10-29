@@ -1,6 +1,6 @@
 {
   "name": "crunchy-api",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Unofficial Crunchyroll API client for watchlists, history, crunchylists, and episode metadata.",
   "type": "module",
   "main": "dist/index.js",
@@ -13,14 +13,23 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "src",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "node scripts/clean.mjs",
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "prepublishOnly": "npm run clean && npm run build"
+    "test": "npm run build && node --test test/*.test.mjs",
+    "check": "npm run typecheck && npm test && npm run test:package",
+    "prepack": "npm run clean && npm run build",
+    "prepublishOnly": "npm run check",
+    "test:package": "node scripts/verify-package.mjs",
+    "web": "npm run build && node web/studio/server.mjs",
+    "web:build": "node web/studio/build.mjs",
+    "test:web": "npm run web:build && node --test web/studio/test/*.test.mjs"
   },
   "engines": {
     "node": ">=18.17"
@@ -36,7 +45,14 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "rimraf": "^6.0.1",
-    "typescript": "^5.9.2"
-  }
+    "typescript": "^7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarshitKumar9030/crunchyroll-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HarshitKumar9030/crunchyroll-api/issues"
+  },
+  "homepage": "https://github.com/HarshitKumar9030/crunchyroll-api#readme"
 }

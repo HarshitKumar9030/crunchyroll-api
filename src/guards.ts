@@ -1,3 +1,5 @@
+import { CrunchyrollApiError } from "./errors.js";
+
 export function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -19,15 +21,15 @@ export function getBoolean(record: Record<string, unknown>, key: string): boolea
 
 export function requireString(record: Record<string, unknown>, key: string, context: string): string {
   const value = getString(record, key);
-  if (!value) {
-    throw new Error(`Invalid ${context}: expected string field \"${key}\".`);
+  if (!value?.trim()) {
+    throw new CrunchyrollApiError(`Invalid ${context}: expected string field \"${key}\".`);
   }
   return value;
 }
 
 export function ensureRecord(payload: unknown, context: string): Record<string, unknown> {
   if (!isRecord(payload)) {
-    throw new Error(`Invalid ${context}: expected JSON object.`);
+    throw new CrunchyrollApiError(`Invalid ${context}: expected JSON object.`);
   }
 
   return payload;

@@ -132,3 +132,30 @@ export interface SeasonEpisodesQuery {
   start?: number;
   locale?: string;
 }
+/** Overrides for a single HTTP request. */
+export interface CrunchyrollRequestOptions {
+  signal?: AbortSignal;
+  timeoutMs?: number;
+}
+
+/** Limits lazy pagination; breaking a for-await loop stops further requests. */
+export interface PaginationOptions extends CrunchyrollRequestOptions {
+  maxPages?: number;
+}
+
+export interface SeriesInfo extends CrunchyPanel {
+  slug_title?: string;
+  season_count?: number;
+}
+
+export interface SeasonInfo extends CrunchyPanel {
+  series_id?: string;
+  season_number?: number;
+  number_of_episodes?: number;
+}
+
+export interface SeriesSeasonsQuery {
+  locale?: string;
+}
+
+export type SeriesSeasonsResponse = ApiListResponse<SeasonInfo>;

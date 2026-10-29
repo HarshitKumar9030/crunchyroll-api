@@ -23,3 +23,9 @@ export class CrunchyrollValidationError extends Error {
     this.name = "CrunchyrollValidationError";
   }
 }
+export class CrunchyrollAbortError extends CrunchyrollApiError {
+  public constructor() {
+    super("Crunchyroll API request was cancelled.");
+    this.name = "CrunchyrollAbortError";
+  }
+}
